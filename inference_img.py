@@ -45,7 +45,7 @@ def rescale_bboxes(out_bbox, size):
 
 # plot box by opencv
 def plot_result(pil_img, prob, boxes, save_name=None, imshow=False, imwrite=False):
-    LABEL = ["NA", "QP", "NY", "QG"]
+    LABEL = ["NLB", "NLS", "GLS"]
     len(prob)
     opencvImage = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
 
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     # detr = DETRdemo(num_classes=3+1)
 
     detr = detr_resnet50(pretrained=False, num_classes=3 + 1).eval()  # <------这里类别需要+1
-    state_dict = torch.load('/content/detr_custom/outputs/checkpoint.pth')  # <-----------修改加载模型的路径
+    state_dict = torch.load('/content/outputs/checkpoint.pth')  # <-----------修改加载模型的路径
     detr.load_state_dict(state_dict["model"])
     detr.to(device)
 
