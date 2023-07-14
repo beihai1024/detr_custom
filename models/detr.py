@@ -320,9 +320,9 @@ def build(args):
     #     # max_obj_id + 1, but the exact value doesn't really matter
     #     num_classes = 250
 
-    num_classes = 3 + 1
+    num_classes = 3
     if args.dataset_file == "coco_panoptic":
-        num_classes = 3 + 1
+        num_classes = 3
 
     device = torch.device(args.device)
 
