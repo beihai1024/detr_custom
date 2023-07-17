@@ -113,7 +113,7 @@ def detect(im, model, transform, prob_threshold=0.7):
 if __name__ == "__main__":
     # detr = DETRdemo(num_classes=3+1)
 
-    detr = detr_resnet50(pretrained=False, num_classes=3 + 1).eval()  # <------这里类别需要+1
+    detr = detr_resnet50(pretrained=False, num_classes=3).eval()  # <------这里类别需要+1
     state_dict = torch.load('/content/outputs/checkpoint.pth')  # <-----------修改加载模型的路径
     detr.load_state_dict(state_dict["model"])
     detr.to(device)
